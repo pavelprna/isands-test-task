@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "_id": "1",
     "name": "Apple iPhone 12",
     "vendor": "Apple",
     "year": "2020",
@@ -15,7 +15,7 @@
     "image": "apple-iphone-12.jpg"
   },
   {
-    "id": "2",
+    "_id": "2",
     "name": "Xiaomi Mi 11 Lite",
     "vendor": "Xiaomi",
     "year": "2021",
@@ -30,7 +30,7 @@
     "image": "xiaomi-mi-11-lite.jpg"
   },
   {
-    "id": "3",
+    "_id": "3",
     "name": "Samsung Galaxy A72",
     "vendor": "Samsung",
     "year": "2021",
@@ -45,7 +45,7 @@
     "image": "samsung-galaxy-a72.jpg"
   },
   {
-    "id": "1",
+    "_id": "4",
     "name": "Apple iPhone 12",
     "vendor": "Apple",
     "year": "2020",
@@ -60,7 +60,7 @@
     "image": "apple-iphone-12.jpg"
   },
   {
-    "id": "1",
+    "_id": "5",
     "name": "Apple iPhone 12",
     "vendor": "Apple",
     "year": "2020",
@@ -75,7 +75,7 @@
     "image": "apple-iphone-12.jpg"
   },
   {
-    "id": "1",
+    "_id": "6",
     "name": "Apple iPhone 12",
     "vendor": "Apple",
     "year": "2020",

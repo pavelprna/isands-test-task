@@ -6,7 +6,7 @@ import initialProoducts from '../data/smartphones.json';
 import { useState } from 'react';
 
 function App() {
-  const [products, setProducts] = useState(initialProoducts || null);
+  const [products] = useState(initialProoducts || null);
 
   return (
     <div className="page">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../styles/compare.css';
+import '../styles/product.css';
 
 function Comparsion(props: any) {
   const [quantity, setQuantity] = useState(3);
@@ -26,9 +27,16 @@ function Comparsion(props: any) {
               Показать различия
             </label>
           </div>
-          <div className="compare__images">
+          <div className="compare__products">
             {
-            props.products.map((product: any, i: number) => (i < quantity) ? <img src={`/images/${product.image}`} alt="ffd"/> : '')
+            props.products.map((product: any, i: number) => (i < quantity) 
+              ? (
+                <div key={product._id} className="compare__item product">
+                  <img src={`/images/${product.image}`} alt={product.name} className="compare__image"/>
+                  <h3 className="product__title">{product.name}</h3>
+                </div>
+              )
+              : '')
             }
           </div>
         </div>
