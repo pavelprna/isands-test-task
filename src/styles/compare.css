@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 0 75px;
+  padding-top: 60px;
 }
 
 .compare__title {
@@ -18,6 +18,7 @@
   color: #0D5ADC;
   font-weight: 400;
   margin: 0;
+  text-transform: none;
 }
 
 .compare__button {
@@ -39,18 +40,22 @@
 .compare__table {
   flex: 1 0 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   padding: 20px 0 0;
 }
 
 .compare__differences {
-  flex: 1 0 255px;
+  color: #A4A9B9;
+  text-transform: uppercase;
+  min-width: 255px;
 }
 
 .compare__products {
-  flex: 1 100%;
+  flex: 1 calc(100% - 255px);
   display: flex;
   justify-content: space-around;
+  padding-bottom: 75px;
 }
 
 .compare__image {
@@ -59,4 +64,11 @@
   object-fit: contain;
   display: block;
   margin: 0 auto 8px;
+}
+
+.compare__row {
+  display: flex;
+  flex: 1 0 100%;
+  background: #f4f9fc;
+  border-bottom: 1px solid #CDCFD2;
 }

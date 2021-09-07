@@ -40,6 +40,20 @@ function Comparsion(props: any) {
               : '')
             }
           </div>
+          {
+            props.specifications.map((spec: any) => (
+              <div className="compare__row">
+                <p className="product__specification compare__differences">{spec.title}</p>
+                
+                {
+                  props.products.map((product: any, i: number) => (i < quantity)
+                    ? (<p className="product__specification">{product[spec.name]}</p>)
+                    : '')
+                }
+                
+              </div>
+            ))
+          }
         </div>
 
       </div>

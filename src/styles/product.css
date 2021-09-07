@@ -20,3 +20,8 @@
   top: 50%;
   cursor: pointer;
 }
+
+.product__specification {
+  flex: 1 255px;
+  padding: 30px 0;
+}

@@ -8,3 +8,7 @@ body {
   font-weight: 500;
   color: #3B4157;
 }
+
+* {
+  box-sizing: border-box;
+}
