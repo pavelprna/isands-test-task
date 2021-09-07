@@ -1,7 +1,22 @@
+.product {
+  position: relative;
+}
 .product__title {
   font-weight: 500;
   font-size: 18px;
   line-height: 1.2;
   margin: 0;
   text-align: center;
+}
+
+.product__arrow-button {
+  width: 30px;
+  height: 30px;
+  background: url(../logo/arrow-open.svg) no-repeat center;
+  padding: 0;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  cursor: pointer;
 }

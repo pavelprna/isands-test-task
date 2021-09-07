@@ -34,6 +34,7 @@ function Comparsion(props: any) {
                 <div key={product._id} className="compare__item product">
                   <img src={`/images/${product.image}`} alt={product.name} className="compare__image"/>
                   <h3 className="product__title">{product.name}</h3>
+                  <button className="product__arrow-button"></button>
                 </div>
               )
               : '')
