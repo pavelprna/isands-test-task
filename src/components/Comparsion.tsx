@@ -29,33 +29,38 @@ function Comparsion(props: any) {
           </div>
           <div className="compare__products">
             {
-            props.products.map((product: any, i: number) => (i < quantity) 
-              ? (
-                <div key={product._id} className="compare__item product">
-                  <img src={`/images/${product.image}`} alt={product.name} className="compare__image"/>
-                  <h3 className="product__title">{product.name}</h3>
-                  <button className="product__arrow-button"></button>
-                </div>
-              )
-              : '')
+              props.products.map((product: any, i: number) => (i < quantity)
+                ? (
+                  <div key={product._id} className="compare__item product">
+                    <img src={`/images/${product.image}`} alt={product.name} className="compare__image" />
+                    <h3 className="product__title">{product.name}</h3>
+                    <button className="product__arrow-button"></button>
+                  </div>
+                )
+                : '')
             }
           </div>
+
+        </div>
+
+      </div>
+      <div className="compare__wrapper">
+        <div className="section__container">
           {
             props.specifications.map((spec: any) => (
               <div className="compare__row">
                 <p className="product__specification compare__differences">{spec.title}</p>
-                
+
                 {
                   props.products.map((product: any, i: number) => (i < quantity)
                     ? (<p className="product__specification">{product[spec.name]}</p>)
                     : '')
                 }
-                
+
               </div>
             ))
           }
         </div>
-
       </div>
     </section>
   )
