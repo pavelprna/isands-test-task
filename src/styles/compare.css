@@ -1,0 +1,38 @@
+.compare__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.compare__title {
+  color: #828286;
+  font-size: 48px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+.compare__quantity {
+  color: #0D5ADC;
+  font-weight: 400;
+}
+
+.compare__button {
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  padding: 0;
+  margin: 0 0 0 5px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.compare__button_active {
+  border-bottom: 1px solid #0D5ADC;
+}
+
+.compare__table {
+  flex: 1 0 100%;
+}
