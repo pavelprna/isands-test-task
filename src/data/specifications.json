@@ -1,0 +1,42 @@
+[
+  {
+    "name": "vendor",
+    "title": "Производитель"
+  },
+  {
+    "name": "year",
+    "title": "год релиза"
+  },
+  {
+    "name": "screen",
+    "title": "Диагональ экрана (дюйм)"
+  },
+  {
+    "name": "country",
+    "title": "Страна-производитель"
+  },
+  {
+    "name": "memory",
+    "title": "Объем памяти"
+  },
+  {
+    "name": "refresh",
+    "title": "Частота обновления экрана"
+  },
+  {
+    "name": "nfc",
+    "title": "NFC"
+  },
+  {
+    "name": "esim",
+    "title": "Поддержка eSIM"
+  },
+  {
+    "name": "wcharge",
+    "title": "Поддержка беспроводной зарядки"
+  },
+  {
+    "name": "price",
+    "title": "Стоимость"
+  }
+]
