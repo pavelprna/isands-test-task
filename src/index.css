@@ -1,3 +1,11 @@
+/* roboto-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./vendor/fonts/roboto-v27-latin_cyrillic-regular.woff2') format('woff2'),
+       url('./vendor/fonts/roboto-v27-latin_cyrillic-regular.woff') format('woff');
+}
 /* roboto-500 - latin_cyrillic */
 @font-face {
   font-family: 'Roboto';
