@@ -98,7 +98,7 @@ function Comparsion(props: any) {
             isPopupOpened && 
               <ReplacementPopup 
                 isOpen={isPopupOpened} 
-                products={products}
+                products={products.slice(quantity)}
                 onClose={closePopup}
                 onReplace={handleReplace} />
           }
