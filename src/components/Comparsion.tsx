@@ -1,13 +1,20 @@
 import { useState } from "react";
 import '../styles/compare.css';
 import '../styles/product.css';
+import CompareRow from "./CompareRow";
 
 function Comparsion(props: any) {
   const [quantity, setQuantity] = useState(3);
+  const [onlyDifferences, setOnlyDifferences] = useState(false);
 
   const handleClick = (e: any) => {
     setQuantity(Number(e.target.textContent));
   }
+
+  const changeOnlyDifferences = () => {
+    setOnlyDifferences(!onlyDifferences);
+  }
+
   return (
     <section className="compare section">
       <div className="section__container compare__container">
@@ -23,7 +30,7 @@ function Comparsion(props: any) {
         <div className="compare__table">
           <div className="compare__differences">
             <label htmlFor="differences" className="compare__text">
-              <input type="checkbox" name="differences" id="differences" />
+              <input type="checkbox" name="differences" id="differences" onClick={changeOnlyDifferences}/>
               Показать различия
             </label>
           </div>
@@ -48,16 +55,11 @@ function Comparsion(props: any) {
         <div className="section__container">
           {
             props.specifications.map((spec: any) => (
-              <div className="compare__row">
-                <p className="product__specification compare__differences">{spec.title}</p>
-
-                {
-                  props.products.map((product: any, i: number) => (i < quantity)
-                    ? (<p className="product__specification">{product[spec.name]}</p>)
-                    : '')
-                }
-
-              </div>
+              <CompareRow 
+              quantity={quantity}
+              spec={spec}
+              products={props.products}
+              onlyDifferences={onlyDifferences}/>
             ))
           }
         </div>
