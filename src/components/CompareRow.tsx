@@ -21,7 +21,13 @@ function CompareRow({spec, products, quantity, onlyDifferences}: any) {
       <div className="compare__row">
         <p className="product__specification compare__differences">{spec.title}</p>
         {
-          values.map((value) => <p className="product__specification">{value}</p>)
+          values.map((value, i) => {
+            if (typeof(value) === "boolean") {
+              
+            }
+              return <p key={i} className="product__specification">{value}</p>
+            
+          })
         }
       </div>
     )

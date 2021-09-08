@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import '../styles/compare.css';
 import '../styles/product.css';
 import CompareRow from "./CompareRow";
@@ -7,11 +7,11 @@ function Comparsion(props: any) {
   const [quantity, setQuantity] = useState(3);
   const [onlyDifferences, setOnlyDifferences] = useState(false);
 
-  const handleClick = (e: any) => {
-    setQuantity(Number(e.target.textContent));
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    setQuantity(Number(e.currentTarget.textContent));
   }
 
-  const changeOnlyDifferences = () => {
+  const changeOnlyDifferences = (): void => {
     setOnlyDifferences(!onlyDifferences);
   }
 
@@ -56,6 +56,7 @@ function Comparsion(props: any) {
           {
             props.specifications.map((spec: any) => (
               <CompareRow 
+              key={spec.name}
               quantity={quantity}
               spec={spec}
               products={props.products}
