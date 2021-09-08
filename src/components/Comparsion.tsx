@@ -4,17 +4,24 @@ import '../styles/product.css';
 import '../styles/popup.css';
 import CompareRow from "./CompareRow";
 import ReplacementPopup from "./ReplacementPopup";
+import initialProducts from '../data/smartphones.json';
+import initialSpecifications from '../data/specifications.json';
 
 function Comparsion(props: any) {
+  const [products, setProducts] = useState(initialProducts);
+  const [specifications] = useState(initialSpecifications);
   const [quantity, setQuantity] = useState(3);
   const [onlyDifferences, setOnlyDifferences] = useState(false);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
+  const [activeProduct, setActiveProduct] = useState<any>(null);
+  
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setQuantity(Number(event.currentTarget.textContent));
   }
 
-  const handleOpenPopup = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleOpenPopup = (product: number): void => {
+    setActiveProduct(product)
     setIsPopupOpened(true);
   }
 
@@ -22,8 +29,17 @@ function Comparsion(props: any) {
     setIsPopupOpened(false);
   }
 
-  const handleReplace = () => {
-
+  const handleReplace = (product: any) => {
+    setProducts((products:any) => products.map((p:any) => {
+      if (p._id === activeProduct._id) {
+        return product;
+      }
+      if (p._id === product._id) {
+        return activeProduct;
+      }
+      return p;
+    }));
+    closePopup();
   }
 
   const changeOnlyDifferences = (): void => {
@@ -51,12 +67,12 @@ function Comparsion(props: any) {
           </div>
           <div className="compare__products">
             {
-              props.products.map((product: any, i: number) => (i < quantity)
+              products.map((product: any, i: number) => (i < quantity)
                 ? (
                   <div key={product._id} className="compare__item product">
                     <img src={`/images/${product.image}`} alt={product.name} className="compare__image" />
                     <h3 className="product__title">{product.name}</h3>
-                    <button className="product__arrow-button" onClick={handleOpenPopup}/>
+                    <button className="product__arrow-button" onClick={() => handleOpenPopup(product)}/>
                   </div>
                 )
                 : '')
@@ -69,12 +85,12 @@ function Comparsion(props: any) {
       <div className="compare__wrapper">
         <div className="section__container">
           {
-            props.specifications.map((spec: any) => (
+            specifications.map((spec: any) => (
               <CompareRow 
               key={spec.name}
               quantity={quantity}
               spec={spec}
-              products={props.products}
+              products={products}
               onlyDifferences={onlyDifferences}/>
             ))
           }
@@ -82,7 +98,7 @@ function Comparsion(props: any) {
             isPopupOpened && 
               <ReplacementPopup 
                 isOpen={isPopupOpened} 
-                products={props.products}
+                products={products}
                 onClose={closePopup}
                 onReplace={handleReplace} />
           }
