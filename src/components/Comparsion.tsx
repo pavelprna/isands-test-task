@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import '../styles/compare.css';
 import '../styles/product.css';
+import '../styles/popup.css';
 import CompareRow from "./CompareRow";
+import ReplacementPopup from "./ReplacementPopup";
 
 function Comparsion(props: any) {
   const [quantity, setQuantity] = useState(3);
   const [onlyDifferences, setOnlyDifferences] = useState(false);
+  const [isPopupOpened, setIsPopupOpened] = useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    setQuantity(Number(e.currentTarget.textContent));
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    setQuantity(Number(event.currentTarget.textContent));
+  }
+
+  const handleOpenPopup = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    setIsPopupOpened(true);
+  }
+
+  const closePopup = () => {
+    setIsPopupOpened(false);
+  }
+
+  const handleReplace = () => {
+
   }
 
   const changeOnlyDifferences = (): void => {
@@ -41,7 +56,7 @@ function Comparsion(props: any) {
                   <div key={product._id} className="compare__item product">
                     <img src={`/images/${product.image}`} alt={product.name} className="compare__image" />
                     <h3 className="product__title">{product.name}</h3>
-                    <button className="product__arrow-button"></button>
+                    <button className="product__arrow-button" onClick={handleOpenPopup}/>
                   </div>
                 )
                 : '')
@@ -63,6 +78,15 @@ function Comparsion(props: any) {
               onlyDifferences={onlyDifferences}/>
             ))
           }
+          {
+            isPopupOpened && 
+              <ReplacementPopup 
+                isOpen={isPopupOpened} 
+                products={props.products}
+                onClose={closePopup}
+                onReplace={handleReplace} />
+          }
+          
         </div>
       </div>
     </section>
